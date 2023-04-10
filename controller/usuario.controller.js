@@ -2,19 +2,16 @@ const usuarios = [
     {
         id: 1,
         nome: "usuario 1",
-        fName: "Lion",
         lName: "Brr"
     },
     {
         id: 2,
         nome: "usuario 2",
-        fName: "Cow",
         lName: "Mmm"
     },
     {
         id: 3,
         nome: "usuario 3",
-        fName: "Cat",
         lName: "Miu"
     },
 ]
@@ -54,11 +51,11 @@ const createUsuario = (req,res) => {
         return res.status(400).send({message: "O campo 'nome' não foi encontrado!"})
     }
 
-    if(!usuario.numFuncionarios){
-        return res.status(400).send({message: "O campo 'numFuncionarios' não foi encontrado!"})
+    if(!usuario.lName){
+        return res.status(400).send({message: "O campo 'sobrenome' não foi encontrado!"})
     }
 
-    usuario.nacionalidade = "brasileira";
+    usuario.nacionalidade = "brasileiro(a)";
 
     usuarios.push(usuario);
     res.status(201).send(usuarios);
@@ -80,8 +77,8 @@ const updateUsuario = (req, res) =>{
         return res.status(400).send({message: "O campo 'nome' não foi encontrado!"})
     }
 
-    if(!usuario.numFuncionarios){
-        return res.status(400).send({message: "O campo 'numFuncionarios' não foi encontrado!"})
+    if(!usuario.lName){
+        return res.status(400).send({message: "O campo 'sobrenome' não foi encontrado!"})
     }
 
     usuarios.map( function (valor, index){
